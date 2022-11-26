@@ -19,16 +19,3 @@ export default {
     <button>edit</button>
   </div>
 </template>
-
-<style>
-.wrapper {
-  border: 1pt solid burlywood;
-  padding: 5pt;
-  margin: 5pt;
-}
-
-button {
-  float: right;
-  margin-left: 5pt;
-}
-</style>

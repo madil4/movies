@@ -7,3 +7,14 @@
 
   font-weight: normal;
 }
+
+.wrapper {
+  border: 1pt solid rgb(199, 128, 36);
+  padding: 5pt;
+  margin: 5pt;
+}
+
+button {
+  float: right;
+  margin-left: 5pt;
+}
