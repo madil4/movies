@@ -6,6 +6,7 @@ export interface Movie {
 }
 
 export const store = reactive({
+  editModeID: -1,
   count: 1,
   movies: [
     { id: 0, title: "Superman" },
@@ -17,5 +18,9 @@ export const store = reactive({
   add(title: string) {
     this.count++;
     this.movies.push({ id: this.count, title });
+  },
+  edit(id: number, title: string) {
+    const movieIndex = this.movies.findIndex((movie) => movie.id == id);
+    this.movies[movieIndex].title = title;
   },
 });

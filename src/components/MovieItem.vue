@@ -1,9 +1,9 @@
 <script lang="ts">
 import { store } from "../store";
+import EditMovieInput from "./EditMovieInput.vue";
 export default {
-  props: {
-    movie: Object,
-  },
+  components: { EditMovieInput },
+  props: ["movie"],
   data() {
     return {
       store,
@@ -14,8 +14,9 @@ export default {
 
 <template>
   <div class="wrapper">
-    <span>{{ movie?.title }}</span>
-    <button @click="store.delete(movie?.id)">delete</button>
-    <button>edit</button>
+    <EditMovieInput v-if="store.editModeID == movie.id" :movie="movie" />
+    <span v-else>{{ movie.title }}</span>
+    <button @click="store.delete(movie.id)">delete</button>
+    <button @click="store.editModeID = movie.id">edit</button>
   </div>
 </template>

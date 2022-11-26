@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import MoviesList from "./components/MoviesList.vue";
-import MovieForm from "./components/MovieForm.vue";
+import AddMovieInput from "./components/AddMovieInput.vue";
 </script>
 
 <template>
   <MoviesList />
-  <MovieForm />
+  <AddMovieInput />
 </template>
