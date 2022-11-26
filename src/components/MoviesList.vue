@@ -1,21 +1,18 @@
 <script lang="ts">
 import MovieItem from "./MovieItem.vue";
+import { store } from "../store";
 
 export default {
   components: { MovieItem },
   data() {
     return {
-      movies: [
-        { id: 1, title: "Spiderman" },
-        { id: 2, title: "Batman" },
-      ],
+      store,
     };
   },
 };
 </script>
 
 <template>
-  <ol>
-    <MovieItem v-for="item in movies" :movie="item" :key="item.id"> </MovieItem>
-  </ol>
+  <MovieItem v-for="movie in store.movies" :movie="movie" :key="movie.id">
+  </MovieItem>
 </template>
