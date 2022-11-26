@@ -1,17 +1,14 @@
 <script lang="ts">
 export default {
-  data() {
-    return {
-      id: 1,
-      title: "Spider man",
-    };
+  props: {
+    movie: Object,
   },
 };
 </script>
 
 <template>
   <div class="wrapper">
-    <span>{{ title }}</span>
+    <span>{{ movie?.title }}</span>
     <button>delete</button>
     <button>edit</button>
   </div>
@@ -20,7 +17,8 @@ export default {
 <style>
 .wrapper {
   border: 1pt solid burlywood;
-  padding: 5pt 5pt;
+  padding: 5pt;
+  margin: 5pt;
 }
 
 button {

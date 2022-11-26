@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import MovieItem from "./components/MovieItem.vue";
+import MoviesList from "./components/MoviesList.vue";
 </script>
 
 <template>
-  <MovieItem />
+  <MoviesList />
 </template>
