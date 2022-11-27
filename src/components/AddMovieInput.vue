@@ -9,7 +9,10 @@ export default {
   },
   methods: {
     add() {
-      if (this.text) store.add(this.text);
+      if (this.text) {
+        store.add(this.text);
+        this.text = "";
+      }
     },
   },
 };
