@@ -5,21 +5,21 @@
 </template>
 
 <script lang="ts">
-import { store } from "../store";
+import { addMovie } from "@/firebase";
+import { ref } from "vue";
+
 export default {
-  data() {
-    return {
-      text: "",
-      store,
-    };
-  },
-  methods: {
-    add() {
-      if (this.text) {
-        store.add(this.text);
-        this.text = "";
+  setup() {
+    const text = ref("");
+
+    const add = () => {
+      if (text.value) {
+        addMovie(text.value);
+        text.value = "";
       }
-    },
+    };
+
+    return { text, add };
   },
 };
 </script>
