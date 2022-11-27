@@ -8,7 +8,7 @@
         </tr>
       </thead>
       <tbody>
-        <MovieItem v-for="movie in store.movies" :movie="movie" :key="movie.id">
+        <MovieItem v-for="movie in movies" :movie="movie" :key="movie.id">
         </MovieItem>
       </tbody>
     </table>
@@ -17,14 +17,12 @@
 
 <script lang="ts">
 import MovieItem from "./MovieItem.vue";
-import { store } from "../store";
+import { loadMovies } from "@/firebase";
 
 export default {
   components: { MovieItem },
-  data() {
-    return {
-      store,
-    };
+  setup() {
+    return { movies: loadMovies() };
   },
 };
 </script>
