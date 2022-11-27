@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, afterEach } from "vitest";
 
 import { mount } from "@vue/test-utils";
-import AddMovieInput from "./AddMovieInput.vue";
+import AddMovieInput from "../AddMovieInput.vue";
 import { addMovie } from "@/firebase";
 
 vi.mock("@/firebase", () => {

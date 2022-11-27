@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, type Mock } from "vitest";
 
 import { mount } from "@vue/test-utils";
-import MoviesList from "./MoviesList.vue";
+import MoviesList from "../MoviesList.vue";
 import { loadMovies } from "@/firebase";
 
 vi.mock("@/firebase", () => {
