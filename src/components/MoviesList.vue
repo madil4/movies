@@ -3,8 +3,8 @@
     <table class="table m-0">
       <thead>
         <tr>
-          <th style="width: 70%" scope="col">Title</th>
-          <th style="width: 30%" scope="col">Action</th>
+          <th style="width: 60%" scope="col">Title</th>
+          <th style="width: 40%" scope="col">Action</th>
         </tr>
       </thead>
       <tbody>
