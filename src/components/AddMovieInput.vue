@@ -1,3 +1,9 @@
+<template>
+  <div class="mt-4">
+    <input v-model="text" @keyup.enter="add" placeholder="Add new movie" />
+  </div>
+</template>
+
 <script lang="ts">
 import { store } from "../store";
 export default {
@@ -17,9 +23,3 @@ export default {
   },
 };
 </script>
-
-<template>
-  <div class="wrapper">
-    <input v-model="text" @keyup.enter="add" placeholder="New movie" />
-  </div>
-</template>
