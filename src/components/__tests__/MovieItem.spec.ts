@@ -21,16 +21,16 @@ describe("MovieItem", async () => {
     vi.clearAllMocks();
   });
 
-  it("should render the move title", () => {
+  it("should show the move title", () => {
     expect(wrapper.find("td span").text()).toBe("Spiderman");
   });
 
-  it("should show an edit and delete buttons", () => {
+  it("should show edit and delete buttons", () => {
     expect(wrapper.findAll("button")[0].text()).toBe("Edit");
     expect(wrapper.findAll("button")[1].text()).toBe("Delete");
   });
 
-  it("should show an edit input when clicking on edit", async () => {
+  it("should show an edit input when the edit button is clicked", async () => {
     const editButton = wrapper.findAll("button")[0];
 
     await editButton.trigger("click");
@@ -38,7 +38,7 @@ describe("MovieItem", async () => {
     expect(wrapper.find("input").element.value).toBe(movie.title);
   });
 
-  it("should edit the movie when pressing enter key on edit", async () => {
+  it("should edit the movie when the enter key is up", async () => {
     const editButton = wrapper.findAll("button")[0];
 
     await editButton.trigger("click");
@@ -69,7 +69,7 @@ describe("MovieItem", async () => {
     expect(input.element.value).toBe("");
   });
 
-  it("should delete the movie when clicking on delete", async () => {
+  it("should delete the movie when the delete button is clicked", async () => {
     const deleteButton = wrapper.findAll("button")[1];
 
     await deleteButton.trigger("click");

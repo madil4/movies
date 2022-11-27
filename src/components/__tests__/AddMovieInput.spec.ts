@@ -22,18 +22,19 @@ describe("AddMovieInput", () => {
     expect(input.element.value).toBe("");
   });
 
-  it("should has a placeholder", () => {
+  it("should have a placeholder", () => {
     expect(input.element.placeholder).toBe("Add new movie");
   });
 
   it("should not add a movie when the value is empty", async () => {
     input.setValue("");
+
     await input.trigger("keyup.enter");
 
     expect(addMovie).not.toBeCalled();
   });
 
-  it("should add a movie after pressing enter key", async () => {
+  it("should add a movie when the enter key is up", async () => {
     const movie = "Spiderman";
 
     input.setValue(movie);

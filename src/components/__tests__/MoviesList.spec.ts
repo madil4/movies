@@ -12,11 +12,12 @@ vi.mock("@/firebase", () => {
 });
 
 describe("MoviesList", () => {
-  it("should load movies", async () => {
+  it("should load movies on mount", async () => {
     (loadMovies as Mock).mockReturnValueOnce([
       { title: "Spiderman" },
       { title: "Batman" },
     ]);
+
     const wrapper = mount(MoviesList);
 
     expect(wrapper.findAll("td span")[0].text()).toBe("Spiderman");
