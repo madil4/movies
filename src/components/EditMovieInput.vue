@@ -1,3 +1,9 @@
+<template>
+  <div>
+    <input v-model="text" @keyup.enter="edit" />
+  </div>
+</template>
+
 <script lang="ts">
 import { store } from "../store";
 export default {
@@ -18,7 +24,3 @@ export default {
   },
 };
 </script>
-
-<template>
-  <input v-model="text" @keyup.enter="edit" />
-</template>
