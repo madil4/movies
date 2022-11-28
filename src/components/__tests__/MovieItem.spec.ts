@@ -1,6 +1,6 @@
-import { describe, it, expect, vi, afterEach } from "vitest";
+import { describe, it, expect, vi, beforeEach } from "vitest";
 
-import { mount } from "@vue/test-utils";
+import { mount, VueWrapper } from "@vue/test-utils";
 import MovieItem from "../MovieItem.vue";
 import { editMovie, deleteMovie } from "@/firebase";
 
@@ -13,11 +13,13 @@ vi.mock("@/firebase", () => {
 
 describe("MovieItem", async () => {
   const movie = { id: 123, title: "Spiderman" };
-  const wrapper = mount(MovieItem, {
-    props: { movie },
-  });
+  let wrapper: VueWrapper;
 
-  afterEach(() => {
+  beforeEach(() => {
+    wrapper = mount(MovieItem, {
+      props: { movie },
+    });
+
     vi.clearAllMocks();
   });
 
@@ -59,14 +61,15 @@ describe("MovieItem", async () => {
     expect(editMovie).not.toBeCalled();
   });
 
-  it("should reset the input value after adding a movie", async () => {
+  it("should remove edit input after editing a movie", async () => {
     const editButton = wrapper.findAll("button")[0];
 
     await editButton.trigger("click");
     const input = wrapper.find("input");
     await input.trigger("keyup.enter");
 
-    expect(input.element.value).toBe("");
+    expect(editMovie).toBeCalledWith(movie.id, movie.title);
+    expect(wrapper.find("input").exists()).toBe(false);
   });
 
   it("should delete the movie when the delete button is clicked", async () => {
